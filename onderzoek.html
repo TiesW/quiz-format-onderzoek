@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <style>
+      </style>
+
+  </head>
+<body>
+  <p id = hetwoord></p>
+  <p id = dedefinitie></p>
+  <button id="terugknop" onclick="woordenAchteruit()">Vorige</button>
+  <button id="heenknop" onclick="woordenVooruit()">Volgende</button>
+</body>
+
+<script>
+    var woordObjecten = [];
+    var woorden = ["croesus","vadem","eskader","spondee","echelonneren","techina","mitsgaders","immanentie","ommekomst"];
+    var definities = ["Fabelachtige rijke koning","Oude lengtemaat","Afdeling bij het leger","Versvoet","In rijen opstellen","Smeekgebed","Bovendien","Er in verblijvend","Afloop van termijn"];
+
+    var i = 0;
+    woorden[i];
+    definities[i];
+
+    document.getElementById("hetwoord").innerHTML = woorden[0];
+    document.getElementById("dedefinitie").innerHTML = definities[0];
+
+    document.getElementById("terugknop").disabled = true;
+
+    function woordenAchteruit() {
+        i--;
+        if (i > 0){
+            document.getElementById("hetwoord").innerHTML = woorden[i];
+            document.getElementById("dedefinitie").innerHTML = definities[i];
+            document.getElementById("terugknop").disabled = false;
+        }
+        else{
+            document.getElementById("terugknop").disabled = true;
+            i = 0;
+            document.getElementById("hetwoord").innerHTML = woorden[i];
+            document.getElementById("dedefinitie").innerHTML = definities[i];
+           }
+        if (i == woorden.length-1){
+            document.getElementById("heenknop").disabled = true;
+        }
+        else{
+            document.getElementById("heenknop").disabled = false;
+        }
+    }
+    function woordenVooruit() {
+        i++;
+        document.getElementById("hetwoord").innerHTML = woorden[i];
+        document.getElementById("dedefinitie").innerHTML = definities[i];
+        if (i > 0){
+            document.getElementById("terugknop").disabled = false;
+        }
+        else{
+            document.getElementById("terugknop").disabled = true;
+        }
+        if (i == woorden.length-1){
+            document.getElementById("heenknop").disabled = true;
+        }
+        else{
+            document.getElementById("heenknop").disabled = false;
+        }
+    }
+</script>
+
+</html>
